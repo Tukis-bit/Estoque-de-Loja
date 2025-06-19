@@ -35,7 +35,7 @@ export function adicionarJogo(){
 return jogo;
 }
 
-let jogos = [];
+
 
 
 export function listarJogos(jogos){
@@ -61,49 +61,32 @@ export function mostrarJogo(resp,jogos){
 
 
 
-export function informarEstoque(jogos){
 
-    if (jogos.length === 0) {
-        console.log('O Estoque está vazio.');
-    } 
-    else {
-        listarJogos(jogos)
-    }
+
+export function adicionarAoEstoque(resposta,jogos){
+console.log(`Qual a quantidade de ${jogos[resposta - 1].nomeJogo} voê quer adicionar para compra?`);
+let quant = Number(ler());
+
+jogos[resposta - 1].quantidade = jogos[resposta - 1].quantidade + quant;
+
+console.log(`Agora o jogo ${jogos[resposta - 1].nomeJogo} tem ${jogos[resposta - 1].quantidade} disponível para compra`);
+
 }
 
-export function adicionarAoEstoque(jogos){
+export function retirarDoEstoque(resposta,jogos){
+console.log(`Qual a quantidade de ${jogos[resposta - 1].nomeJogo} voê quer retirar para compra?`);
+let quant = Number(ler());
 
-
-    console.log(`Você deseja adicionar algum jogo ao estoque?`)
-    let adi=ler();
-
-    if(adi === 'sim' || adi === 'Sim' || adi === 's'){
-        console.log('Me informe o nome do jogo ');
-        let nome = ler();
-    
-        console.log('\nMe informe a impresa criadora do jogo');
-        let emp = ler();
-    
-        console.log('\nMe informe o tamanho do jogo em Gigas');
-        let tamanho = Number(ler());
-    
-        console.log('\nMe informe o preço do jogo ');
-        let preco = Number(ler());
-    
-        console.log('\nMe informe a quantidade de jogos para compra ');
-        let quant = Number(ler());
-
-        let jogo = { 
-            nomeJogo: nome,
-            tamanhoJogo: tamanho,
-            empresa: emp,
-            precoJogo: preco,
-            quantidade: quant
-        }
-        
-        return jogo;
-
-    }
-   
+if(quant > jogos[resposta - 1].quantidade){
+    console.log('Não é possível retirar Essa quantidade pois não temos tantos jogos no estoque');
 }
+
+else{
+jogos[resposta - 1].quantidade = jogos[resposta - 1].quantidade - quant;
+
+console.log(`Agora o jogo ${jogos[resposta - 1].nomeJogo} tem ${jogos[resposta - 1].quantidade} disponível para compra`);
+}
+
+}
+
 

@@ -17,26 +17,81 @@ if(resposta == 1){
 }
 
 else if(resposta == 2){
+    
+    if(jogos.length === 0){
+        console.log('Ainda não temos jogos no estoque')
+    }
+    
     // Faz uma lista dos jogos disponíveis
+    else{
     funcoes.listarJogos(jogos);
 
     console.log('\nEscolha um jogo de acordo com o seu número');
     resposta = Number(ler());
 
+    
+    if(resposta - 1 > jogos.length -1 || resposta - 1 < jogos.length -1 ){
+        console.log('Não existe jogo com esse código');
+    }
+
+    else{
     //Mostra o jogo escolhido 
     funcoes.mostrarJogo(resposta,jogos);
-
-    break}
+}
+}
+    }
     
     else if(resposta == 3){
         // faz uma lista dos jogos disponiveis
          
-        funcoes.informarEstoque(jogos)
-
-        jogos.push(funcoes.adicionarAoEstoque())
-
-        console.log(`Jogo adicionado ao estoque!`)
-
+    if(jogos.length == 0){
+        console.log('Ainda não temos jogos no estoque')
     }
+
+    else{
+        funcoes.listarJogos(jogos)
+        console.log('Escolha o jogo que você quer adicionar de acordo com o seu número');
+        resposta = Number(ler());
+
+        
+        if(resposta - 1 > jogos.length -1 || resposta - 1 < jogos.length -1 ){
+            console.log('Não existe jogo com esse código');
+        }
+
+        else{
+        //Adiciona a quantidade do jogo ao estoque
+        funcoes.adicionarAoEstoque(resposta,jogos);
+
+        console.log(`Adicionado ao estoque!`)
+}
+}
+    }
+
+    else if( resposta == 4){
+        
+    if(jogos.length == 0){
+        console.log('Ainda não temos jogos no estoque')
+    }
+    
+    else{
+        
+        // faz uma lista dos jogos disponiveis
+         
+           funcoes.listarJogos(jogos);
+
+           console.log('Escolha o jogo que você quer retirar de acordo com o seu número');
+           resposta = Number(ler());
+   
+            if(resposta - 1 > jogos.length -1 || resposta - 1 < jogos.length -1 ){
+                console.log('Não existe jogo com esse código');
+            }
+
+            else{
+            //Retira a quantidade do jogo ao estoque
+           funcoes.retirarDoEstoque(resposta,jogos);
+   }
+           
+    }
+}
 }
 
