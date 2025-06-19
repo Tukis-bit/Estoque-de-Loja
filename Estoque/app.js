@@ -38,5 +38,8 @@ else if(resposta == 2){
         console.log(`Jogo adicionado ao estoque!`)
 
     }
+
+    console.log(`saindo do programa...`)
+    break;
 }
 

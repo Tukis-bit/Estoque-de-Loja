@@ -9,6 +9,8 @@ export function apresentarMenu(){
     console.log('---------------------------------\n-   1. Cadastrar Novo Produto   -\n-   2. Listar Produtos          -\n-   3. Adicionar ao Estoque     -\n-   4. Retirar Do estoque       -\n-   5. Apagar Produto           -\n-   0. Sair Do Programa         -\n---------------------------------');
 } 
 
+
+
 export function adicionarJogo(){
      console.log('Me informe o nome do jogo ');
     let nome = ler();
@@ -50,13 +52,14 @@ export function listarJogos(jogos){
 
 }
 
-export function mostrarJogo(resp,jogos){
+export async function mostrarJogo(resp,jogos){
      
     console.log(`Jogo: ${jogos[resp -1].nomeJogo}`);
     console.log(`Tamanho: ${jogos[resp -1].tamanhoJogo}`);
     console.log(`empresa: ${jogos[resp -1].empresa}`);
     console.log(`Preço: R$ ${jogos[resp -1].precoJogo}`);
     console.log(`Quantidade para compra: ${jogos[resp -1].quantidade}`);
+
 }
 
 
@@ -71,15 +74,17 @@ export function informarEstoque(jogos){
     }
 }
 
-export function adicionarAoEstoque(jogos){
+export async function adicionarAoEstoque(jogos){
 
 
     console.log(`Você deseja adicionar algum jogo ao estoque?`)
     let adi=ler();
 
+
     if(adi === 'sim' || adi === 'Sim' || adi === 's'){
         console.log('Me informe o nome do jogo ');
         let nome = ler();
+
     
         console.log('\nMe informe a impresa criadora do jogo');
         let emp = ler();
@@ -107,3 +112,9 @@ export function adicionarAoEstoque(jogos){
    
 }
 
+function sleep(milisegundos) {
+    return new Promise((ok, nok) => {
+      setTimeout(ok, milisegundos);
+    })
+  }
+  
