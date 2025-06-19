@@ -35,6 +35,9 @@ export function adicionarJogo(){
 return jogo;
 }
 
+let jogos = [];
+
+
 export function listarJogos(jogos){
     console.log("Os jogos No menu são:");
     let i = 1; 
@@ -55,3 +58,52 @@ export function mostrarJogo(resp,jogos){
     console.log(`Preço: R$ ${jogos[resp -1].precoJogo}`);
     console.log(`Quantidade para compra: ${jogos[resp -1].quantidade}`);
 }
+
+
+
+export function informarEstoque(jogos){
+
+    if (jogos.length === 0) {
+        console.log('O Estoque está vazio.');
+    } 
+    else {
+        listarJogos(jogos)
+    }
+}
+
+export function adicionarAoEstoque(jogos){
+
+
+    console.log(`Você deseja adicionar algum jogo ao estoque?`)
+    let adi=ler();
+
+    if(adi === 'sim' || adi === 'Sim' || adi === 's'){
+        console.log('Me informe o nome do jogo ');
+        let nome = ler();
+    
+        console.log('\nMe informe a impresa criadora do jogo');
+        let emp = ler();
+    
+        console.log('\nMe informe o tamanho do jogo em Gigas');
+        let tamanho = Number(ler());
+    
+        console.log('\nMe informe o preço do jogo ');
+        let preco = Number(ler());
+    
+        console.log('\nMe informe a quantidade de jogos para compra ');
+        let quant = Number(ler());
+
+        let jogo = { 
+            nomeJogo: nome,
+            tamanhoJogo: tamanho,
+            empresa: emp,
+            precoJogo: preco,
+            quantidade: quant
+        }
+        
+        return jogo;
+
+    }
+   
+}
+
