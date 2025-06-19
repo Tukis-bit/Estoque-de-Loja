@@ -7,6 +7,7 @@ let jogos = [];
 
 funcoes.apresentarPrograma();
 
+//Mostra e repete o menu de acordo com a resposta do usuário
 for(let i =1; i != 0; i++){
 funcoes.apresentarMenu();
 let resposta = Number(ler()); 
