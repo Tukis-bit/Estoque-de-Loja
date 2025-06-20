@@ -7,7 +7,7 @@ let jogos = [];
 funcoes.apresentarPrograma();
 
 //Mostra e repete o menu de acordo com a resposta do usuário
-for(let i =1; i != 0; i++){
+for(let i = 1; i != 0; i++){
 funcoes.apresentarMenu();
 let resposta = Number(ler()); 
 
@@ -18,7 +18,7 @@ if(resposta == 1){
 
 else if(resposta == 2){
     
-    if(jogos.length === 0){
+    if(jogos.length == 0){
         console.log('Ainda não temos jogos no estoque')
     }
     
@@ -72,6 +72,37 @@ else if(resposta == 2){
     if(jogos.length == 0){
         console.log('Ainda não temos jogos no estoque')
     }
+
+    else {
+        console.log('Opção inválida! Tente novamente.');
+    }
+}
+
+
+        // Excluir jogo do estoque
+    else if (resposta == 5) {
+
+        if (jogos.length == 0) {
+            console.log('Ainda não temos jogos no estoque');
+        } else {
+            funcoes.listarJogos(jogos);
+            console.log('Escolha o jogo que você quer excluir de acordo com o seu número');
+            let escolha = Number(ler());
+
+            if (escolha < 1 || escolha > jogos.length) {
+                console.log('Não existe jogo com esse código');
+            } else {
+                let removido = jogos.splice(escolha - 1, 1);
+                console.log(`Jogo removido com sucesso!`);
+            }
+        }
+    }
+
+    else if (resposta == 0) {
+        console.log('Saindo do programa...');
+        break;
+    }
+
     
     else{
         
@@ -83,7 +114,7 @@ else if(resposta == 2){
            resposta = Number(ler());
    
             if(resposta - 1 > jogos.length -1 || resposta - 1 < jogos.length -1 ){
-                console.log('Não existe jogo com esse código');
+                console.log('Não existe jogo com esse número');
             }
 
             else{
@@ -92,9 +123,7 @@ else if(resposta == 2){
    }
            
     }
+}
 
-    console.log(`saindo do programa...`)
-    break;
-}
-}
+
 

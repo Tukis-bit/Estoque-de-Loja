@@ -2,11 +2,11 @@ import prompt from"prompt-sync"
 const ler = prompt();
 
 export function apresentarPrograma(){
-    console.log("-----------------------------------------------\n-   Seja bem vindo à Loja de Jogos do Tukis   -\n-----------------------------------------------");
+    console.log("-----------------------------------------------\n-   Seja bem vindo à Loja de Jogos   -\n-----------------------------------------------");
 }
 
 export function apresentarMenu(){
-    console.log('---------------------------------\n-   1. Cadastrar Novo Produto   -\n-   2. Listar Produtos          -\n-   3. Adicionar ao Estoque     -\n-   4. Retirar Do estoque       -\n-   5. Apagar Produto           -\n-   0. Sair Do Programa         -\n---------------------------------');
+    console.log('---------------------------------\n    O que iremos fazer?\n-   1. Cadastrar Novo Produto   -\n-   2. Listar Produtos          -\n-   3. Adicionar ao Estoque     -\n-   4. Retirar Do estoque       -\n-   5. Apagar Produto           -\n-   0. Sair Do Programa         -\n---------------------------------');
 } 
 
 
