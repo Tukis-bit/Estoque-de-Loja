@@ -10,7 +10,6 @@ export function apresentarMenu(){
 } 
 
 
-
 export function adicionarJogo(){
      console.log('Me informe o nome do jogo ');
     let nome = ler();
@@ -38,8 +37,6 @@ return jogo;
 }
 
 
-
-
 export function listarJogos(jogos){
     console.log("Os jogos No menu são:");
     let i = 1; 
@@ -52,6 +49,7 @@ export function listarJogos(jogos){
 
 }
 
+
 export async function mostrarJogo(resp,jogos){
      
     console.log(`Jogo: ${jogos[resp -1].nomeJogo}`);
@@ -61,9 +59,6 @@ export async function mostrarJogo(resp,jogos){
     console.log(`Quantidade para compra: ${jogos[resp -1].quantidade}`);
 
 }
-
-
-
 
 
 export function adicionarAoEstoque(resposta,jogos){
@@ -76,43 +71,7 @@ console.log(`Agora o jogo ${jogos[resposta - 1].nomeJogo} tem ${jogos[resposta -
 
 }
 
-export async function adicionarAoEstoque(jogos){
 
-
-    console.log(`Você deseja adicionar algum jogo ao estoque?`)
-    let adi=ler();
-
-
-    if(adi === 'sim' || adi === 'Sim' || adi === 's'){
-        console.log('Me informe o nome do jogo ');
-        let nome = ler();
-
-    
-        console.log('\nMe informe a impresa criadora do jogo');
-        let emp = ler();
-    
-        console.log('\nMe informe o tamanho do jogo em Gigas');
-        let tamanho = Number(ler());
-    
-        console.log('\nMe informe o preço do jogo ');
-        let preco = Number(ler());
-    
-        console.log('\nMe informe a quantidade de jogos para compra ');
-        let quant = Number(ler());
-
-        let jogo = { 
-            nomeJogo: nome,
-            tamanhoJogo: tamanho,
-            empresa: emp,
-            precoJogo: preco,
-            quantidade: quant
-        }
-        
-        return jogo;
-
-    }
-   
-}
 
 function sleep(milisegundos) {
     return new Promise((ok, nok) => {
@@ -120,8 +79,9 @@ function sleep(milisegundos) {
     })
   }
   
+  
 export function retirarDoEstoque(resposta,jogos){
-console.log(`Qual a quantidade de ${jogos[resposta - 1].nomeJogo} voê quer retirar para compra?`);
+console.log(`Qual a quantidade de ${jogos[resposta - 1].nomeJogo} você quer retirar para compra?`);
 let quant = Number(ler());
 
 if(quant > jogos[resposta - 1].quantidade){
