@@ -45,7 +45,7 @@ else if(resposta == 2){
         // faz uma lista dos jogos disponiveis
          
     if(jogos.length == 0){
-        console.log('Ainda não temos jogos no estoque')
+        console.log('Ainda não temos jogos no estoque');
     }
 
     else{
@@ -72,7 +72,7 @@ else if(resposta == 2){
           
          
           if(jogos.length == 0){
-            console.log('Ainda não temos jogos no estoque')
+            console.log('Ainda não temos jogos no estoque');
         }
     
         else{
@@ -100,14 +100,16 @@ else if(resposta == 2){
 
         if (jogos.length == 0) {
             console.log('Ainda não temos jogos no estoque');
-        } else {
+        } 
+        else {
             funcoes.listarJogos(jogos);
             console.log('Escolha o jogo que você quer excluir de acordo com o seu número');
             let escolha = Number(ler());
 
             if (escolha < 1 || escolha > jogos.length) {
                 console.log('Não existe jogo com esse código');
-            } else {
+            }
+             else {
                 let removido = jogos.splice(escolha - 1, 1);
                 console.log(`Jogo removido com sucesso!`);
             }
