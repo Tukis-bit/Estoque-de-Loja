@@ -69,12 +69,28 @@ else if(resposta == 2){
 
     else if( resposta == 4){
         
-    if(jogos.length == 0){
-        console.log('Ainda não temos jogos no estoque')
+          
+         
+          if(jogos.length == 0){
+            console.log('Ainda não temos jogos no estoque')
+        }
+    
+        else{
+            funcoes.listarJogos(jogos)
+            console.log('Escolha o jogo que você quer retirar de acordo com o seu número');
+            resposta = Number(ler());
+    
+            
+            if(resposta - 1 > jogos.length -1 || resposta - 1 < jogos.length -1 ){
+                console.log('Não existe jogo com esse código');
+            }
+    
+            else{
+            //Adiciona a quantidade do jogo ao estoque
+            funcoes.retirarDoEstoque(resposta,jogos);
+    
+            console.log(`Retirado do estoque!`);
     }
-
-    else {
-        console.log('Opção inválida! Tente novamente.');
     }
 }
 
@@ -98,29 +114,14 @@ else if(resposta == 2){
         }
     }
 
-    else if (resposta == 0) {
+    else if (resposta === 0) {
         console.log('Saindo do programa...');
         break;
     }
 
     
     else{
-        
-        // faz uma lista dos jogos disponiveis
-         
-           funcoes.listarJogos(jogos);
-
-           console.log('Escolha o jogo que você quer retirar de acordo com o seu número');
-           resposta = Number(ler());
-   
-            if(resposta - 1 > jogos.length -1 || resposta - 1 < jogos.length -1 ){
-                console.log('Não existe jogo com esse número');
-            }
-
-            else{
-            //Retira a quantidade do jogo ao estoque
-           funcoes.retirarDoEstoque(resposta,jogos);
-   }
+        console.log('Opção inválida');
            
     }
 }
