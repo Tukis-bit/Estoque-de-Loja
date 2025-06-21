@@ -14,6 +14,9 @@ let resposta = Number(ler());
 //Adicionar um jogo no estoque
 if(resposta == 1){
  jogos.push(funcoes.adicionarJogo());
+
+ console.log(`Obrigado por utilizar o sistema!`);
+
 }
 
 else if(resposta == 2){
@@ -39,6 +42,8 @@ else if(resposta == 2){
     funcoes.mostrarJogo(resposta,jogos);
 }
 }
+console.log(`Obrigado por utilizar o sistema!`);
+
     }
     
     else if(resposta == 3){
@@ -65,6 +70,8 @@ else if(resposta == 2){
         console.log(`Adicionado ao estoque!`)
 }
 }
+        console.log(`Obrigado por utilizar o sistema!`);
+
     }
 
     else if( resposta == 4){
@@ -92,28 +99,30 @@ else if(resposta == 2){
             console.log(`Retirado do estoque!`);
     }
     }
+
+    console.log(`Obrigado por utilizar o sistema!`);
+
 }
 
 
         // Excluir jogo do estoque
     else if (resposta == 5) {
 
-        if (jogos.length == 0) {
-            console.log('Ainda não temos jogos no estoque');
-        } 
-        else {
-            funcoes.listarJogos(jogos);
-            console.log('Escolha o jogo que você quer excluir de acordo com o seu número');
-            let escolha = Number(ler());
+       funcoes.ApagarProduto(jogos);
 
-            if (escolha < 1 || escolha > jogos.length) {
-                console.log('Não existe jogo com esse código');
-            }
-             else {
-                let removido = jogos.splice(escolha - 1, 1);
-                console.log(`Jogo removido com sucesso!`);
-            }
-        }
+        console.log(`Obrigado por utilizar o sistema!`);
+
+    }
+
+    else if(resposta === 6){
+        funcoes.buscarJogoNome(jogos);
+        console.log(`Obrigado por utilizar o sistema!`);
+
+    }
+    
+    else if(resposta === 7 ){
+        funcoes.buscarJogoPreco(jogos);
+
     }
 
     else if (resposta === 0) {

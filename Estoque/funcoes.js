@@ -1,4 +1,5 @@
 import prompt from"prompt-sync"
+import * as funcoes from "./funcoes.js";
 const ler = prompt();
 
 export function apresentarPrograma(){
@@ -6,7 +7,20 @@ export function apresentarPrograma(){
 }
 
 export function apresentarMenu(){
-    console.log('---------------------------------\n    O que iremos fazer?\n-   1. Cadastrar Novo Produto   -\n-   2. Listar Produtos          -\n-   3. Adicionar ao Estoque     -\n-   4. Retirar Do estoque       -\n-   5. Apagar Produto           -\n-   0. Sair Do Programa         -\n---------------------------------');
+  console.log(`
+    ---------------------------------
+        O que iremos fazer?
+    -   1. Cadastrar Novo Produto   -
+    -   2. Listar Produtos          -
+    -   3. Adicionar ao Estoque     -
+    -   4. Retirar Do Estoque       -
+    -   5. Apagar Produto           -
+    -   6. Buscar Jogo (por nome)   -
+    -   7. Buscar Jogo (por preço)  -
+    -   8. Listar por Plataforma    -
+    -   0. Sair Do Programa         -
+    ---------------------------------`);
+    
 } 
 
 
@@ -80,6 +94,25 @@ function sleep(milisegundos) {
   }
   
   
+  export function ApagarProduto(jogos){
+     if (jogos.length == 0) {
+                console.log('Ainda não temos jogos no estoque');
+            } 
+            else {
+                funcoes.listarJogos(jogos);
+                console.log('Escolha o jogo que você quer excluir de acordo com o seu número');
+                let escolha = Number(ler());
+    
+                if (escolha < 1 || escolha > jogos.length) {
+                    console.log('Não existe jogo com esse código');
+                }
+                 else {
+                    let removido = jogos.splice(escolha - 1, 1);
+                    console.log(`Jogo removido com sucesso!`);
+                }
+            }
+  }
+
 export function retirarDoEstoque(resposta,jogos){
 console.log(`Qual a quantidade de ${jogos[resposta - 1].nomeJogo} você quer retirar para compra?`);
 let quant = Number(ler());
@@ -96,4 +129,51 @@ console.log(`Agora o jogo ${jogos[resposta - 1].nomeJogo} tem ${jogos[resposta -
 
 }
 
+export function buscarJogoNome(jogos){
+  console.log(`informe o nome do jogo que você deseja buscar`);
+  let nome = ler();
+  for(let i = 0; i< jogos.length; i++){
+    if(jogos[i].nomeJogo === nome){
+      console.log(`O jogo encontrado foi:`);
+      console.log(`nome: ${jogos[i].nomeJogo}`);
+      console.log(`tamanho: ${jogos[i].tamanhoJogo}`);
+      console.log(`preco: ${jogos[i].precoJogo}`);
+      console.log(`quantidade: ${jogos[i].quantidade}`);
+      
+
+  }
+}
+}
+
+export function buscarJogoPreco(jogos){
+  console.log(`informe o preco do jogo que você deseja buscar`);
+  let preco = Number(ler());
+  let jogosEncontrados=0;
+
+  for(let i = 0; i < jogos.length; i++){
+    if(jogos[i].precoJogo === preco){
+      console.log(`O jogo encontrado foi:`);
+      console.log(`nome:${jogos[i].nomeJogo}`); 
+      jogosEncontrados++
+    }
+  }
+  console.log(`Obrigado por utilizar o sistema!`);
+
+}
+
+export function ListarPorPlataforma(jogos){
+  console.log(`informe a plataforma que você deseja buscar`);
+  let plataforma = ler();
+  for(let i = 0; i<jogos.length; i++){
+    if(jogos[i].plataforma === plataforma){
+      console.log(`O jogo encontrado foi:`);
+      console.log(`nome: ${jogos[i].nomeJogo}`);
+      console.log(`tamanho: ${jogos[i].tamanhoJogo}`);
+      console.log(`preco: ${jogos[i].precoJogo}`);
+      console.log(`quantidade: ${jogos[i].quantidade}`);
+
+    }
+  }
+  console.log(`Obrigado por utilizar o sistema!`);
+}
 
