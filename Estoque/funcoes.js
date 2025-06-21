@@ -40,19 +40,23 @@ export function adicionarJogo(){
     console.log('\nMe informe a quantidade de jogos para compra ');
     let quant = Number(ler());
 
+    console.log('\nMe informe a plataforma para compra ');
+    let plataforma = ler();
+
     let jogo = { 
         nomeJogo: nome,
         tamanhoJogo: tamanho,
         empresa: emp,
         precoJogo: preco,
-        quantidade: quant}
+        quantidade: quant,
+      plataforma: plataforma}
 
 return jogo;
 }
 
 
 export function listarJogos(jogos){
-    console.log("Os jogos No menu são:");
+    console.log("Os jogos no menu são:");
     let i = 1; 
 
     for(let item of jogos){
@@ -71,12 +75,13 @@ export async function mostrarJogo(resp,jogos){
     console.log(`empresa: ${jogos[resp -1].empresa}`);
     console.log(`Preço: R$ ${jogos[resp -1].precoJogo}`);
     console.log(`Quantidade para compra: ${jogos[resp -1].quantidade}`);
+    console.log(`Plataforma: ${jogos[resp -1].plataforma}`);
 
 }
 
 
 export function adicionarAoEstoque(resposta,jogos){
-console.log(`Qual a quantidade de ${jogos[resposta - 1].nomeJogo} voê quer adicionar para compra?`);
+console.log(`Qual a quantidade de ${jogos[resposta - 1].nomeJogo} você quer adicionar para compra?`);
 let quant = Number(ler());
 
 jogos[resposta - 1].quantidade = jogos[resposta - 1].quantidade + quant;

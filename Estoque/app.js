@@ -124,6 +124,10 @@ console.log(`Obrigado por utilizar o sistema!`);
         funcoes.buscarJogoPreco(jogos);
 
     }
+    
+    else if(resposta === 8){
+        funcoes.ListarPorPlataforma(jogos);
+    }
 
     else if (resposta === 0) {
         console.log('Saindo do programa...');
