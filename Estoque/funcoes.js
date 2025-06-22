@@ -145,8 +145,9 @@ export function buscarJogoNome(jogos){
       console.log(`preco: ${jogos[i].precoJogo}`);
       console.log(`quantidade: ${jogos[i].quantidade}`);
       
-
   }
+  else (console.log(`\nO jogo não foi encontrado`));
+
 }
 }
 
@@ -160,9 +161,10 @@ export function buscarJogoPreco(jogos){
       console.log(`O jogo encontrado foi:`);
       console.log(`nome:${jogos[i].nomeJogo}`); 
       jogosEncontrados++
+      console.log(`Obrigado por utilizar o sistema!`);
     }
+    else (console.log(`\nO jogo não foi encontrado`));
   }
-  console.log(`Obrigado por utilizar o sistema!`);
 
 }
 
@@ -178,6 +180,8 @@ export function ListarPorPlataforma(jogos){
       console.log(`quantidade: ${jogos[i].quantidade}`);
 
     }
+    else (console.log(`\nO jogo não foi encontrado`));
+
   }
   console.log(`Obrigado por utilizar o sistema!`);
 }
